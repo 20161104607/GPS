@@ -10,22 +10,18 @@
     
     int main()
     {
-        int  ;
-        char ch[62];
-        FILE *fp1,*fp2;
-        fp1=fopen("//Users//a20161104607//Desktop//GPS//GPS170510.log ","w");
-        fp2=fopen("//Users//a20161104607//Desktop//GPS//GPS170510.log ","r");
-        if(fp2==NULL)
-        {
-            printf("文件输出错误");
+        FILE *fr;
+        char str1[70];
+        char str2[70];
+        char lat[9];//定义纬度
+        int i;
+        fr=fopen("//Users//a20161104607//Desktop//GPS//GPS170510.log","r+");
+        fscanf(fr,"%s %s",str1,str2);
+        printf("结果:%s\n %s\n",str1,str2);
+            for(i=0;i<8;i++)
+            lat[i]=str1[i+16];
+            lat[8]='\0';
+            printf("纬度:%s\n",lat);
+            fclose(fr);
+            return 0;
         }
-        else
-        {
-            fscanf(fp2,"$GPRMC,,%6s,%c,%1f,%c,%1f,%c,%1f,%1f,%6s,%s",time,7gps,&latitude1,&longitude1,&v,&cours,year,s);
-            if(gps==‘A’)
-            {
-        
-            }
-        }
-    }
-
